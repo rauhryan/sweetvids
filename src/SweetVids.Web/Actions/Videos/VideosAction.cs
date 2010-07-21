@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FubuMVC.Core.Continuations;
+using FubuMVC.Core.View;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
 using SweetVids.Web.Conventions;
 
-namespace SweetVids.Web.Actions
+namespace SweetVids.Web.Actions.Videos
 {
     public class VideosAction
     {
@@ -30,6 +32,31 @@ namespace SweetVids.Web.Actions
         {
             return new VideoViewModel(){Video = _repository.Get(request.Id)};
         }
+
+        public FubuContinuation Post(AddVideoRequest request)
+        {
+            _repository.Save(request.Video);
+
+            return FubuContinuation.RedirectTo(new ListVideosRequest());
+        }
+
+        public FubuContinuation Delete(DeleteVideoRequest request)
+        {
+            var video = _repository.Get(request.Id);
+            _repository.Delete(video);
+
+            return FubuContinuation.RedirectTo(new ListVideosRequest());
+        }
+    }
+
+    public class DeleteVideoRequest : IRequestById
+    {
+        public Guid Id { get; set; }
+    }
+
+    public class AddVideoRequest
+    {
+        public Video Video { get; set; }
     }
 
     public class GetVideoRequest : IRequestById 
@@ -51,4 +78,7 @@ namespace SweetVids.Web.Actions
     {
         public IEnumerable<Video> Videos { get; set; }
     }
+
+    public class Videos : FubuPage<ListVideosViewModel> { }
+    public class Details : FubuPage<VideoViewModel> { }
 }
