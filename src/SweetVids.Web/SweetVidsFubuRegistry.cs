@@ -1,6 +1,7 @@
 using System;
 using FubuMVC.Core;
 using FubuMVC.UI;
+using SweetVids.Web.Conventions;
 
 namespace SweetVids.Web
 {
@@ -19,6 +20,18 @@ namespace SweetVids.Web
               .IncludeTypesNamed(x => x.EndsWith("Action"));
          
             //Setup Routes
+            Routes
+                .IgnoreControllerNamespaceEntirely()
+                .IgnoreClassSuffix("Action")
+                .IgnoreMethodSuffix("Get")
+                .IgnoreMethodSuffix("Post")
+                .IgnoreMethodSuffix("Delete")
+                .ConstrainToHttpMethod(call => call.Method.Name.Equals("Get"), "GET")
+                .ConstrainToHttpMethod(call => call.Method.Name.Equals("Post"), "POST")
+                .ConstrainToHttpMethod(call => call.Method.Name.Equals("Delete"), "DELETE")
+                .ForInputTypesOf<IRequestById>(call => call.RouteInputFor(request => request.Id));
+                
+
 
 
 
