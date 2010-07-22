@@ -8,10 +8,10 @@ namespace SweetVids.Core.Persistence.Conventions
     {
         public void Apply(IOneToManyCollectionInstance instance)
         {
+            instance.Not.LazyLoad();
             instance.Access.ReadOnlyPropertyThroughCamelCaseField(CamelCasePrefix.Underscore);
             instance.Cascade.SaveUpdate();
-            instance.Cache.ReadWrite();
-            
+           
         }
     }
 }

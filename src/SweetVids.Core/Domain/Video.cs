@@ -7,7 +7,7 @@ namespace SweetVids.Core.Domain
 {
     public class Video : Entity
     {
-        private IList<VideoComment> _comments = new List<VideoComment>();
+        private IList<VideoComment> _videoComments = new List<VideoComment>();
 
         [Required]
         public virtual string Link { get; set; }
@@ -18,9 +18,9 @@ namespace SweetVids.Core.Domain
         [Required]
         public virtual string VideoType { get; set; }
 
-        public virtual IEnumerable<VideoComment> GetComments()
+        public virtual IEnumerable<VideoComment> GetVideoComments()
         {
-            return _comments;
+            return _videoComments;
         }
 
         public virtual string GetYouTubeUrl()

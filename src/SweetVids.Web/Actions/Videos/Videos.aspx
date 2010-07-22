@@ -17,7 +17,7 @@
   <object width="660" height="525"><param name="movie" value="<%=video.GetYouTubeUrl() %>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%=video.GetYouTubeUrl() %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="525"></embed></object>
 
   <p><%=video.Description %></p>
-  <a href="/videos/<%=video.Id %>" >Comments(<%=video.GetComments().Count()%>)</a>
+  <a href="/videos/<%=video.Id %>" >Comments(<%=video.GetVideoComments().Count()%>)</a>
 <%} %>
  
  </asp:Content>

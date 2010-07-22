@@ -7,7 +7,7 @@ namespace SweetVids.Core.Persistence
     {
         public void Apply(IManyToOneInstance instance)
         {
-            instance.Cascade.SaveUpdate();
+            instance.Cascade.None();
             instance.ForeignKey("fk_" + instance.Property.DeclaringType.Name + "_to_" + instance.Property.Name);
         }
     }

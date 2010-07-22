@@ -44,6 +44,9 @@
     <Reference Include="FubuMVC.UI">
       <HintPath>..\..\lib\FubuMVC\FubuMVC.UI.dll</HintPath>
     </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender">
+      <HintPath>..\..\..\..\fieldbook\lib\NHProf\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\..\lib\FubuMVC\HtmlTags.dll</HintPath>
     </Reference>
@@ -81,6 +84,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Comments\CommentsAction.cs" />
     <Compile Include="Actions\Videos\VideoFormAction.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

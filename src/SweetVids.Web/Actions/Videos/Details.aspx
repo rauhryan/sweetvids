@@ -15,11 +15,13 @@
   <object width="960" height="745"><param name="movie" value="<%=Model.Video.GetYouTubeUrl() %>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%=Model.Video.GetYouTubeUrl() %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="525"></embed></object>
 
   <p><%=Model.Video.Description %></p>
-<% foreach (var comment in Model.Video.GetComments())
+<% foreach (var comment in Model.Video.GetVideoComments())
 { %>
   
   <div class="comment">
-    <img class="gravatar" alt="gravatar" src="<%=comment.Email.ToGravatarHash() %>" />
+  <img src="http://www.gravatar.com/avatar/<%= comment.Email.ToGravatarHash() %>?d=monsterid&s=60"
+        alt="gravatar" />
+   
     <h3><%=comment.Name %></h3>
     <p>
         <%=comment.Comment %>

@@ -52,7 +52,7 @@ namespace SweetVids.Core.Persistence
                 c.Add<CustomManyToManyTableNameConvention>();
                 c.Add<CustomReferencesConvention>();
                 c.Add<CustomJoinedSubclassConvention>();
-
+                c.Add<HasManyConvention>();
                 AddValidation(c);
 
                 // Keep these last

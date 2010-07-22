@@ -40,7 +40,7 @@ namespace SweetVids.Web
                                            };
             fubuBootstrapper.Bootstrap(_routes);
 
-
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
 
             ObjectFactory.Container.StartStartables();
             

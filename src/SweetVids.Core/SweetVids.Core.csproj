@@ -74,11 +74,11 @@
     <Compile Include="Domain\IDomainQuery.cs" />
     <Compile Include="Domain\Video.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Persistence\Overrides\VideoOverride.cs" />
     <Compile Include="Util\Inflector.cs" />
     <Compile Include="IStartable.cs" />
     <Compile Include="Persistence\AutoPersistenceModelGenerator.cs" />
     <Compile Include="Persistence\Conventions\CustomForeignKeyConvention.cs" />
-    <Compile Include="Persistence\Conventions\CustomHasManyConvention.cs" />
     <Compile Include="Persistence\Conventions\CustomJoinedSubclassConvention.cs" />
     <Compile Include="Persistence\Conventions\CustomManyToManyTableNameConvention.cs" />
     <Compile Include="Persistence\Conventions\CustomReferencesConvention.cs" />
