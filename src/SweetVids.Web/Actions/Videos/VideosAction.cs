@@ -24,7 +24,8 @@ namespace SweetVids.Web.Actions.Videos
             var videos = _repository
                 .Query()
                 .Skip(10*request.Page)
-                .Take(10);
+                .Take(10)
+                .OrderByDescending(x => x.Created);
 
             return new ListVideosViewModel(){Videos = videos};
         }

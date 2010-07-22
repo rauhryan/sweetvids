@@ -6,9 +6,11 @@
 <head runat="server">
     <title>NineCollective - Sweet Vids</title>
     
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/reset.css" />
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/960.css" />
     <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/structure.css" />
-    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/grid960.css" />
     <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/styles.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
@@ -17,16 +19,29 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   <div id="main">
-    <div id="header">
-        <a href="/videos"><h1>Sweet Vids</h1></a>
+   <div class="container_16">
+    <div class="grid_16 hdr-main">
+        <div class="mod grid_8">
+            <div class="inner">
+                <div class="bd">
+                    <a href="/videos"><h1 class="lobster color0 ">Sweet Vids</h1></a>        
+                </div>
+            </div>
+        </div>
+        <div class="mod grid_8">
+            <div class="inner">
+                <div class="bd"></div>
+            </div>
+        </div>
+        
     </div>
-    <div>
+    
+    
         <asp:ContentPlaceHolder ID="_mainContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
-   </div>
+   
     
 </body>
 </html>

@@ -10,7 +10,7 @@
  <asp:Content ContentPlaceHolderID="_mainContent" runat=server>
 
  
-<h3><%= Model.Video.Title %></h3>
+<h2><%= Model.Video.Title %></h2>
 
   <object width="960" height="745"><param name="movie" value="<%=Model.Video.GetYouTubeUrl() %>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%=Model.Video.GetYouTubeUrl() %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="525"></embed></object>
 

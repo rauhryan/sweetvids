@@ -26,7 +26,7 @@ namespace SweetVids.Core.Domain
         public virtual string GetYouTubeUrl()
         {
             var url =
-                "http://www.youtube.com/v/{0}&amp;hl=en_US&amp;fs=1?color1=0x2b405b&amp;color2=0x6b8ab6&amp;border=1";
+                "http://www.youtube.com/v/{0}&amp;hl=en_US&amp;fs=1";
             var uri = new Uri(Link);
 
             var vidId = HttpUtility.ParseQueryString(uri.Query).Get("v");
