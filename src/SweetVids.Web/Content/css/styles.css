@@ -3,8 +3,17 @@
 .color0 { color: #FFF; }
 .color1{color:#222222;} /* Used for Headers */
 .color10{ color:#898989; } /* secondary text and alt header text color */
+
+/* Background - Colors */
+.bg-color0,.drilldown .inner,.odd,.basic-row{ background-color:#fff; } /* white bg - duh! --*/
+.bg-color1,.basic-ext .inner,.drilldown,.bg-color10,.bg-color11{ 
+	background-color:#e7e7e7; } /* main mod bg color */
+.bg-color2, .even { background-color:#F1F7FC } /* main venue bg color */
+.bg-color3, .odd:hover, .even:hover{background-color:#D4E7F5} /* secondary venue bg color and deals ftr */
+
 .hdr-main { background: url('/content/images/headerbar.jpg') repeat-x top left; }
 
+ul.comments li { border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; margin-top: 3px; margin-bottom: 3px;}
 
 /* Forms */
 .form-text, .form-textarea { border: 1px solid #bbb; padding: .25em 0 .25em .25em; font-size: 16px; color: #444;
