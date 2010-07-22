@@ -1,5 +1,6 @@
 ﻿.lobster { font-family: 'Lobster';}
 
+
 .color0 { color: #FFF; }
 .color1{color:#222222;} /* Used for Headers */
 .color10{ color:#898989; } /* secondary text and alt header text color */
@@ -10,6 +11,7 @@
 	background-color:#e7e7e7; } /* main mod bg color */
 .bg-color2, .even { background-color:#F1F7FC } /* main venue bg color */
 .bg-color3, .odd:hover, .even:hover{background-color:#D4E7F5} /* secondary venue bg color and deals ftr */
+.bg-color4 {background-color: #fefefe;}
 
 .hdr-main { background: url('/content/images/headerbar.jpg') repeat-x top left; }
 

@@ -1,6 +1,10 @@
 using System;
+using System.Xml.Serialization;
+using FubuCore;
 using FubuMVC.Core;
 using FubuMVC.UI;
+using SweetVids.Web.Actions.Rss;
+using SweetVids.Web.Behaviors;
 using SweetVids.Web.Conventions;
 
 namespace SweetVids.Web
@@ -51,6 +55,12 @@ namespace SweetVids.Web
                                       x.by_ViewModel_and_Namespace();
                                       x.by_ViewModel();
                                   });
+
+            Output.To(call => new RssOutputNode(call.OutputType())).WhenTheOutputModelIs<RssFeed>();
         }
     }
-    }
+
+    
+
+   
+}

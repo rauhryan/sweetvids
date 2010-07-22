@@ -76,6 +76,7 @@
     <Content Include="Content\css\structure.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\headerbar.jpg" />
+    <Content Include="Content\images\rss.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -89,12 +90,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\Comments\CommentsAction.cs" />
+    <Compile Include="Actions\Rss\RssAction.cs" />
+    <Compile Include="Actions\Rss\RssFeed.cs" />
     <Compile Include="Actions\Videos\VideoFormAction.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Actions\Videos\VideosAction.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Behaviors\RssOutputNode.cs" />
     <Compile Include="Behaviors\TransactionalContainerBehavior.cs" />
     <Compile Include="Conventions\IRequestById.cs" />
     <Compile Include="FubuPageExtensions.cs" />

@@ -11,6 +11,7 @@
     <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/structure.css" />
     <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/styles.css" />
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="/rss" type="application/rss+xml" title="Sweet Vids Feed" rel="alternate">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
@@ -18,7 +19,7 @@
     <asp:ContentPlaceHolder ID="_headerContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="bg-color4">
    <div class="container_16">
     <div class="grid_16 hdr-main">
         <div class="mod grid_8">
@@ -30,7 +31,7 @@
         </div>
         <div class="mod grid_8">
             <div class="inner">
-                <div class="bd"></div>
+                <div class="bd f-right"><a href="/rss"><img src="/content/images/rss.png" /></a></div>
             </div>
         </div>
         
