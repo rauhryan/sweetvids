@@ -12,7 +12,7 @@
 
  <% foreach (var video in Model.Videos)
 { %>
-<h3><%= video.Title %></h3>
+<a href="/videos/<%=video.Id %>"><h3><%= video.Title %></h3></a>
 
   <object width="660" height="525"><param name="movie" value="<%=video.GetYouTubeUrl() %>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%=video.GetYouTubeUrl() %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="525"></embed></object>
 

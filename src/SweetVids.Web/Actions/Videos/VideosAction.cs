@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.View;
 using SweetVids.Core.Domain;
@@ -33,6 +34,7 @@ namespace SweetVids.Web.Actions.Videos
             return new VideoViewModel(){Video = _repository.Get(request.Id)};
         }
 
+        [UrlForNew(typeof(Video))]
         public FubuContinuation Post(AddVideoRequest request)
         {
             _repository.Save(request.Video);

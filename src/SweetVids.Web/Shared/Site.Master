@@ -4,17 +4,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>NineCollective - Sweet Vids</title>
+    
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/structure.css" />
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/grid960.css" />
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/styles.css" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+
     <asp:ContentPlaceHolder ID="_headerContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   
+   <div id="main">
+    <div id="header">
+        <a href="/videos"><h1>Sweet Vids</h1></a>
+    </div>
     <div>
         <asp:ContentPlaceHolder ID="_mainContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
+   </div>
     
 </body>
 </html>

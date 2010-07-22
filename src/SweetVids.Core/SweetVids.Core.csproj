@@ -73,6 +73,7 @@
     <Compile Include="Domain\Enumeration.cs" />
     <Compile Include="Domain\IDomainQuery.cs" />
     <Compile Include="Domain\Video.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Util\Inflector.cs" />
     <Compile Include="IStartable.cs" />
     <Compile Include="Persistence\AutoPersistenceModelGenerator.cs" />
