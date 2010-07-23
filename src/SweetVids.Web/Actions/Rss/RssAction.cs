@@ -23,10 +23,9 @@ namespace SweetVids.Web.Actions.Rss
         public RssFeed Get()
         {
 
-
-
             var items = from v in _repository.Query()
                         .OrderByDescending(x => x.Created)
+                        .Take(10)
                         .AsEnumerable()
                         select new RssItem()
                                    {
