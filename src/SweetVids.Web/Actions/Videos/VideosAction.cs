@@ -27,7 +27,10 @@ namespace SweetVids.Web.Actions.Videos
                 .Take(10)
                 .OrderByDescending(x => x.Created);
 
-            return new ListVideosViewModel(){Videos = videos};
+            var count = _repository.Query().Count();
+
+
+            return new ListVideosViewModel(){Videos = videos, Total = count, Page = request.Page};
         }
 
         public VideoViewModel Get(GetVideoRequest request)
@@ -80,6 +83,10 @@ namespace SweetVids.Web.Actions.Videos
     public class ListVideosViewModel
     {
         public IEnumerable<Video> Videos { get; set; }
+
+        public int Total { get; set; }
+
+        public int Page { get; set; }
     }
 
     public class Videos : FubuPage<ListVideosViewModel> { }

@@ -53,17 +53,17 @@
                 <p>
                     <label class="form-label" for="name">
                         Name:</label>
-                    <input class="form-text color10" type="text" id="name" name="CommentName" value="" />
+                    <input class="form-text color10 required" type="text" id="name" name="CommentName" value="" />
                 </p>
                 <p>
                     <label class="form-label" for="email">
                         Email:</label>
-                    <input class="form-text color10" type="text" id="email" name="CommentEmail" />
+                    <input class="form-text color10 required email" type="text" id="email" name="CommentEmail" />
                 </p>
                 <p>
                     <label class="form-label" for="comment">
                         Comment:</label>
-                    <textarea class="form-textarea color10" id="comment" name="CommentComment" cols="15"
+                    <textarea class="form-textarea color10 required" id="comment" name="CommentComment" cols="15"
                         rows="5"></textarea>
                 </p>
                 <p>
