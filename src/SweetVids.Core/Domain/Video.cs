@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Web;
 using SweetVids.Core.Validation;
 
@@ -34,5 +35,22 @@ namespace SweetVids.Core.Domain
             return string.Format(url, vidId);
            
         }
+
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+
+            builder.Append("<div><h3>");
+            builder.Append(Title);
+            builder.Append("</h3><div>");
+            builder.Append(string.Format(
+                "<object width=\"960\" height=\"745\"><param name=\"movie\" value=\"{0}\"></param><param name=\"allowFullScreen\" value=\"true\"></param><param name=\"allowscriptaccess\" value=\"always\"></param><embed src=\"{0}\" type=\"application/x-shockwave-flash\"allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"660\" height=\"525\"></embed></object>",
+                GetYouTubeUrl()));
+            builder.Append("</div><p>");
+            builder.Append(Description);
+            builder.Append("</p></div>");
+            return builder.ToString();
+        }
+       
     }
 }
