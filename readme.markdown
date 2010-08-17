@@ -23,10 +23,16 @@ If you do not have ruby:
   * type: `echo // > src\CommonAssemblyInfo.cs`
 1. open src\SweetVids.sln with Visual Studio and Build the solution
 
---
-
 How to get SweetVids running?
+--
 
 Sweet vids uses FluentNHibernate but we are using some custom rake commands to get the database up and running.
 
 1. the rake command `rake dbCreateDev ` should create the required sqlServer container and run the initial schema scripts.
+
+SweetVids does current require a default install of sql server at (localhost) if you are using SqlExpress 
+you can change the DBSERVER variable in rakefile.rb to: 
+
+	> DBSERVER = "localhost\sqlexpress"
+	
+but please do not commit these changes.
