@@ -30,11 +30,12 @@ namespace SweetVids.Web
             Routes
                 .IgnoreControllerNamespaceEntirely()
                 .IgnoreClassSuffix("Controller")
+                .IgnoreMethodSuffix("Get")
                 .IgnoreMethodSuffix("List")
                 .IgnoreMethodSuffix("Details")
                 .IgnoreMethodSuffix("Post")
                 .IgnoreMethodSuffix("Delete")
-                .ConstrainToHttpMethod(call => call.Method.Name.Equals("List") || call.Method.Name.Equals("Details"), "GET")
+                .ConstrainToHttpMethod(call => call.Method.Name.Equals("List") || call.Method.Name.Equals("Details") || call.Method.Name.Equals("Get"), "GET")
                 .ConstrainToHttpMethod(call => call.Method.Name.Equals("Post"), "POST")
                 .ConstrainToHttpMethod(call => call.Method.Name.Equals("Delete"), "DELETE")
                 .ForInputTypesOf<IRequestById>(call => call.RouteInputFor(request => request.Id));
