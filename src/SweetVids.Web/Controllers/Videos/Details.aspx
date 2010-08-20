@@ -1,8 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="SweetVids.Web.Actions.Videos.Details"
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="SweetVids.Web.Controllers.Videos.Details"
     MasterPageFile="~/Shared/Site.Master" %>
 
 <%@ Import Namespace="SweetVids.Core" %>
-<%@ Import Namespace="SweetVids.Web.Actions.Videos" %>
 <asp:Content ContentPlaceHolderID="_headerContent" runat="server">
 </asp:Content>
 <asp:Content ContentPlaceHolderID="_mainContent" runat="server">
@@ -46,6 +45,8 @@
             </div>
         </div>
     </div>
+
+    <!-- this is intentionally bad to demonstrate the manual way of building inputs and form elements -->
     <div class="mod prefix_2 grid_12 suffix_2">
         <div class="inner">
             <div class="bd">

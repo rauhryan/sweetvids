@@ -3,8 +3,8 @@ using System.Xml.Serialization;
 using FubuCore;
 using FubuMVC.Core;
 using FubuMVC.UI;
-using SweetVids.Web.Actions.Rss;
 using SweetVids.Web.Behaviors;
+using SweetVids.Web.Controllers.Rss;
 using SweetVids.Web.Conventions;
 
 namespace SweetVids.Web

@@ -2,7 +2,7 @@ using FubuMVC.Core;
 using FubuMVC.Core.View;
 using SweetVids.Core.Domain;
 
-namespace SweetVids.Web.Actions.Videos
+namespace SweetVids.Web.Controllers.Videos
 {
     public class VideoFormController
     {

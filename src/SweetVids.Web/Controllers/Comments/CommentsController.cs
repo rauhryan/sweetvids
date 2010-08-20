@@ -3,9 +3,9 @@ using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
-using SweetVids.Web.Actions.Videos;
+using SweetVids.Web.Controllers.Videos;
 
-namespace SweetVids.Web.Actions.Comments
+namespace SweetVids.Web.Controllers.Comments
 {
     public class CommentsController
     {

@@ -2,12 +2,11 @@ using System.Linq;
 using System.Xml.Serialization;
 using FubuCore;
 using FubuMVC.Core.Urls;
-using HtmlTags;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
-using SweetVids.Web.Actions.Videos;
+using SweetVids.Web.Controllers.Videos;
 
-namespace SweetVids.Web.Actions.Rss
+namespace SweetVids.Web.Controllers.Rss
 {
     public class RssController
     {

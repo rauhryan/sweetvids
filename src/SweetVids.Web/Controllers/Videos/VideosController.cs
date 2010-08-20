@@ -8,7 +8,7 @@ using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
 using SweetVids.Web.Conventions;
 
-namespace SweetVids.Web.Actions.Videos
+namespace SweetVids.Web.Controllers.Videos
 {
     public class VideosController
     {

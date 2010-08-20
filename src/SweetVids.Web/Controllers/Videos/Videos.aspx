@@ -1,9 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Videos.aspx.cs" Inherits="SweetVids.Web.Actions.Videos.Videos"
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Videos.aspx.cs" Inherits="SweetVids.Web.Controllers.Videos.Videos"
     MasterPageFile="~/Shared/Site.Master" %>
 
-<%@ Import Namespace="SweetVids.Web" %>
 
-<%@ Import Namespace="SweetVids.Web.Actions.Videos" %>
+<%@ Import Namespace="SweetVids.Web" %>
+<%@ Import Namespace="SweetVids.Web.Controllers.Videos" %>
+
 <asp:Content ContentPlaceHolderID="_headerContent" runat="server">
     <script type="text/javascript">
         jQuery(function ($) {

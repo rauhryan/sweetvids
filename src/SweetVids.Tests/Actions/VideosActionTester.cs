@@ -6,7 +6,7 @@ using StructureMap.AutoMocking;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
 using SweetVids.Web.Actions;
-using SweetVids.Web.Actions.Videos;
+using SweetVids.Web.Controllers.Videos;
 
 namespace SweetVids.Tests.Actions
 {

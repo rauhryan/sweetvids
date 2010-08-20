@@ -68,9 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Actions\Videos\AddVideoForm.aspx" />
-    <Content Include="Actions\Videos\Details.aspx" />
-    <Content Include="Actions\Videos\Videos.aspx" />
+    <Content Include="Controllers\Videos\AddVideoForm.aspx" />
+    <Content Include="Controllers\Videos\Details.aspx" />
+    <Content Include="Controllers\Videos\Videos.aspx" />
     <Content Include="Content\css\960.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\structure.css" />
@@ -90,13 +90,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\Comments\CommentsController.cs" />
-    <Compile Include="Actions\Rss\RssController.cs" />
-    <Compile Include="Actions\Rss\RssFeed.cs" />
-    <Compile Include="Actions\Videos\VideoFormController.cs">
+    <Compile Include="Controllers\Comments\CommentsController.cs" />
+    <Compile Include="Controllers\Rss\RssController.cs" />
+    <Compile Include="Controllers\Rss\RssFeed.cs" />
+    <Compile Include="Controllers\Videos\VideoFormController.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Actions\Videos\VideosController.cs">
+    <Compile Include="Controllers\Videos\VideosController.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Behaviors\RssOutputNode.cs" />

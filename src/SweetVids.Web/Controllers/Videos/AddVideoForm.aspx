@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddVideoForm.aspx.cs" Inherits="SweetVids.Web.Actions.Videos.AddVideoForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddVideoForm.aspx.cs" Inherits="SweetVids.Web.Controllers.Videos.AddVideoForm" %>
 <%@ Import Namespace="SweetVids.Core.Domain" %>
 <%@ Import Namespace="SweetVids.Web" %>
 
