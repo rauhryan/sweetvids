@@ -4,7 +4,7 @@ using SweetVids.Core.Domain;
 
 namespace SweetVids.Web.Actions.Videos
 {
-    public class VideoFormAction
+    public class VideoFormController
     {
         [FubuPartial]
         public VideoFormViewModel Form(AddVideoFormRequest request)

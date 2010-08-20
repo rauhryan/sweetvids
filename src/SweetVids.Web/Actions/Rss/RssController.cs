@@ -9,12 +9,12 @@ using SweetVids.Web.Actions.Videos;
 
 namespace SweetVids.Web.Actions.Rss
 {
-    public class RssAction
+    public class RssController
     {
         private readonly IRepository<Video> _repository;
         private readonly IUrlRegistry _urlRegistry;
 
-        public RssAction(IRepository<Video> repository, IUrlRegistry urlRegistry)
+        public RssController(IRepository<Video> repository, IUrlRegistry urlRegistry)
         {
             _repository = repository;
             _urlRegistry = urlRegistry;
@@ -46,7 +46,7 @@ namespace SweetVids.Web.Actions.Rss
                                                  Description = "Just some sweet vids bro, what you mad?",
                                                  Language = "en-US",
                                                  Title = "Sweet Vids",
-                                                 Link = _urlRegistry.UrlFor<RssAction>(x => x.Get()).ToAbsoluteUrl(),
+                                                 Link = _urlRegistry.UrlFor<RssController>(x => x.Get()).ToAbsoluteUrl(),
                                                  Items = items.ToArray()
                                              }
                            };

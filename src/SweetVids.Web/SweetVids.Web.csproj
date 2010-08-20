@@ -90,13 +90,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\Comments\CommentsAction.cs" />
-    <Compile Include="Actions\Rss\RssAction.cs" />
+    <Compile Include="Actions\Comments\CommentsController.cs" />
+    <Compile Include="Actions\Rss\RssController.cs" />
     <Compile Include="Actions\Rss\RssFeed.cs" />
-    <Compile Include="Actions\Videos\VideoFormAction.cs">
+    <Compile Include="Actions\Videos\VideoFormController.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Actions\Videos\VideosAction.cs">
+    <Compile Include="Actions\Videos\VideosController.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Behaviors\RssOutputNode.cs" />

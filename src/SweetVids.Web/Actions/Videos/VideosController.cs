@@ -10,11 +10,11 @@ using SweetVids.Web.Conventions;
 
 namespace SweetVids.Web.Actions.Videos
 {
-    public class VideosAction
+    public class VideosController
     {
         private readonly IRepository<Video> _repository;
 
-        public VideosAction(IRepository<Video> repository)
+        public VideosController(IRepository<Video> repository)
         {
             _repository = repository;
         }

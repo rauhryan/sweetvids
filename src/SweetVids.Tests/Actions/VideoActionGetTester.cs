@@ -13,16 +13,16 @@ namespace SweetVids.Tests.Actions
 {
     public class VideoActionGetTester : ContextSpecification
     {
-        protected RhinoAutoMocker<VideosAction> _mocks;
-        protected VideosAction _action;
+        protected RhinoAutoMocker<VideosController> _mocks;
+        protected VideosController Controller;
         protected VideoViewModel _outModel;
         private Video _video;
 
 
         protected override void SetupFixtureContext()
         {
-            _mocks = new RhinoAutoMocker<VideosAction>();
-            _action = _mocks.ClassUnderTest;
+            _mocks = new RhinoAutoMocker<VideosController>();
+            Controller = _mocks.ClassUnderTest;
 
             _video = new Video() {Id = Guid.NewGuid()};
         }
@@ -32,7 +32,7 @@ namespace SweetVids.Tests.Actions
             base.BecauseOnce();
             _mocks.Get<IRepository<Video>>().Stub(c => c.Get(_video.Id)).Return(_video);
 
-            _outModel = _action.Get(new GetVideoRequest() {Id = _video.Id});
+            _outModel = Controller.Get(new GetVideoRequest() {Id = _video.Id});
         }
 
         [Test]

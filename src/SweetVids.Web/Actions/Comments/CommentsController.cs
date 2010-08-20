@@ -7,11 +7,11 @@ using SweetVids.Web.Actions.Videos;
 
 namespace SweetVids.Web.Actions.Comments
 {
-    public class CommentsAction
+    public class CommentsController
     {
         private readonly IRepository<VideoComment> _repository;
 
-        public CommentsAction(IRepository<VideoComment> repository)
+        public CommentsController(IRepository<VideoComment> repository)
         {
             _repository = repository;
         }

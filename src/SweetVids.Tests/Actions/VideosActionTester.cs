@@ -12,16 +12,16 @@ namespace SweetVids.Tests.Actions
 {
     public class VideosActionTester : ContextSpecification
     {
-        protected RhinoAutoMocker<VideosAction> _mocks;
-        protected VideosAction _action;
+        protected RhinoAutoMocker<VideosController> _mocks;
+        protected VideosController Controller;
         protected ListVideosViewModel _outModel;
         protected IList<Video> _vidList;
 
 
         protected override void SetupFixtureContext()
         {
-            _mocks = new RhinoAutoMocker<VideosAction>();
-            _action = _mocks.ClassUnderTest;
+            _mocks = new RhinoAutoMocker<VideosController>();
+            Controller = _mocks.ClassUnderTest;
 
             _vidList = new List<Video>() { new Video(), new Video(), new Video(), new Video() };
         }
@@ -39,7 +39,7 @@ namespace SweetVids.Tests.Actions
         {
             base.BecauseOnce();
 
-            _outModel = _action.Get(new ListVideosRequest { Page = 0 });
+            _outModel = Controller.Get(new ListVideosRequest { Page = 0 });
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace SweetVids.Tests.Actions
                                   });
             base.BecauseOnce();
 
-            _outModel = _action.Get(new ListVideosRequest { Page = 1 });
+            _outModel = Controller.Get(new ListVideosRequest { Page = 1 });
             
         }
 
