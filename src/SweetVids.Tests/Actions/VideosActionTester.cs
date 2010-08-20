@@ -38,7 +38,7 @@ namespace SweetVids.Tests.Actions
         {
             base.BecauseOnce();
 
-            _outModel = Controller.Get(new ListVideosRequest { Page = 0 });
+            _outModel = Controller.List(new ListVideosRequest { Page = 0 });
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace SweetVids.Tests.Actions
                                   });
             base.BecauseOnce();
 
-            _outModel = Controller.Get(new ListVideosRequest { Page = 1 });
+            _outModel = Controller.List(new ListVideosRequest { Page = 1 });
             
         }
 

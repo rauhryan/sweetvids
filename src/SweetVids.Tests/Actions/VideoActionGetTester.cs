@@ -31,7 +31,7 @@ namespace SweetVids.Tests.Actions
             base.BecauseOnce();
             _mocks.Get<IRepository<Video>>().Stub(c => c.Get(_video.Id)).Return(_video);
 
-            _outModel = Controller.Get(new GetVideoRequest() {Id = _video.Id});
+            _outModel = Controller.Details(new GetVideoRequest() {Id = _video.Id});
         }
 
         [Test]

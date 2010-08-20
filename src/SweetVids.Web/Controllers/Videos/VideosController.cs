@@ -19,7 +19,7 @@ namespace SweetVids.Web.Controllers.Videos
             _repository = repository;
         }
 
-        public ListVideosViewModel Get(ListVideosRequest request)
+        public ListVideosViewModel List(ListVideosRequest request)
         {
             var videos = _repository
                 .Query()
@@ -33,7 +33,7 @@ namespace SweetVids.Web.Controllers.Videos
             return new ListVideosViewModel(){Videos = videos, Total = count, Page = request.Page};
         }
 
-        public VideoViewModel Get(GetVideoRequest request)
+        public VideoViewModel Details(GetVideoRequest request)
         {
             return new VideoViewModel(){Video = _repository.Get(request.Id)};
         }
