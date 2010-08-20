@@ -4,6 +4,14 @@ using System.Reflection;
 using System.Web;
 using System.Web.Routing;
 using FubuMVC.Core;
+using FubuMVC.StructureMap;
+using FubuMVC.UI.Tags;
+using Microsoft.Practices.ServiceLocation;
+using Spark;
+using Spark.Web.FubuMVC;
+using Spark.Web.FubuMVC.ViewCreation;
+using StructureMap;
+using SweetVids.Core;
 
 namespace SweetVids.Web
 {
@@ -24,14 +32,39 @@ namespace SweetVids.Web
                 .Name;
         }
 
+        protected virtual SparkSettings GetSparkSettings()
+        {
+            return new SparkSettings()
+                .AddAssembly(typeof(PartialTagFactory).Assembly)
+                .AddNamespace("Spark.Web.FubuMVC")
+                .AddNamespace("FubuMVC.UI")
+                .AddNamespace("HtmlTags")
+                .AddNamespace("System.Collections.Generic")
+                .AddNamespace("System.Linq");
+        }
+
+        protected virtual void InitializeStructureMap(IInitializationExpression ex)
+        {
+            ex.ForSingletonOf<SparkViewFactory>();
+            ex.For<IServiceLocator>().Use<StructureMapServiceLocator>();
+            ex.For<ISparkSettings>().Use(GetSparkSettings);
+            ex.For(typeof(ISparkViewRenderer<>)).Use(typeof(SparkViewRenderer<>));
+            ex.AddRegistry(new SweetVidsCoreRegistry());
+            ex.AddRegistry(new SweetVidsWebRegistry());
+        }
+
         public virtual FubuRegistry GetMyRegistry()
         {
-            return new SweetVidsFubuRegistry(HttpContext.Current.IsDebuggingEnabled, ControllerAssembly);
+            var sparkViewFactory = ObjectFactory.Container.GetInstance<SparkViewFactory>();
+            return new SweetVidsFubuRegistry(HttpContext.Current.IsDebuggingEnabled, ControllerAssembly, sparkViewFactory);
         }
 
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteCollection routeCollection = RouteTable.Routes;
+
+            ObjectFactory.Initialize(InitializeStructureMap);
+
             SweetVidsStructureMapBootstrapper.Bootstrap(routeCollection, GetMyRegistry());
         }
     }

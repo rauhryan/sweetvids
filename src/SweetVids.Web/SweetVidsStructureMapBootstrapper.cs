@@ -27,20 +27,15 @@ namespace SweetVids.Web
         {
             UrlContext.Reset();
 
-            ObjectFactory.Initialize(x =>
-                                         {
-                                             x.AddRegistry(new SweetVidsCoreRegistry());
-                                             x.AddRegistry(new SweetVidsWebRegistry());
-                                         });
-
             var fubuBootstrapper = new StructureMapBootstrapper(ObjectFactory.Container, fubuRegistry);
             fubuBootstrapper.Builder = (c, args, id) =>
                                            {
                                                return new TransactionalContainerBehavior(c, args, id);
                                            };
+
             fubuBootstrapper.Bootstrap(_routes);
 
-            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
 
             ObjectFactory.Container.StartStartables();
             

@@ -5,7 +5,6 @@ using Rhino.Mocks;
 using StructureMap.AutoMocking;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
-using SweetVids.Web.Actions;
 using SweetVids.Web.Controllers.Videos;
 
 namespace SweetVids.Tests.Actions

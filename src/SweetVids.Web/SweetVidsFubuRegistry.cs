@@ -3,6 +3,9 @@ using System.Xml.Serialization;
 using FubuCore;
 using FubuMVC.Core;
 using FubuMVC.UI;
+using Spark.Web.FubuMVC;
+using Spark.Web.FubuMVC.Extensions;
+using Spark.Web.FubuMVC.ViewLocation;
 using SweetVids.Web.Behaviors;
 using SweetVids.Web.Controllers.Rss;
 using SweetVids.Web.Conventions;
@@ -11,7 +14,7 @@ namespace SweetVids.Web
 {
     public class SweetVidsFubuRegistry : FubuRegistry
     {
-        public SweetVidsFubuRegistry(bool enableDiagnostics, string controllerAssemblyName)
+        public SweetVidsFubuRegistry(bool enableDiagnostics, string controllerAssemblyName, SparkViewFactory sparkViewFactory)
         {
             IncludeDiagnostics(enableDiagnostics);
 
@@ -21,12 +24,12 @@ namespace SweetVids.Web
 
             //Setup Actions
             Actions
-              .IncludeTypesNamed(x => x.EndsWith("Action"));
+              .IncludeTypesNamed(x => x.EndsWith("Controller"));
          
             //Setup Routes
             Routes
                 .IgnoreControllerNamespaceEntirely()
-                .IgnoreClassSuffix("Action")
+                .IgnoreClassSuffix("Controller")
                 .IgnoreMethodSuffix("Get")
                 .IgnoreMethodSuffix("Post")
                 .IgnoreMethodSuffix("Delete")
@@ -34,10 +37,6 @@ namespace SweetVids.Web
                 .ConstrainToHttpMethod(call => call.Method.Name.Equals("Post"), "POST")
                 .ConstrainToHttpMethod(call => call.Method.Name.Equals("Delete"), "DELETE")
                 .ForInputTypesOf<IRequestById>(call => call.RouteInputFor(request => request.Id));
-                
-
-
-
 
             this.StringConversions(x =>
                                        {
@@ -49,11 +48,14 @@ namespace SweetVids.Web
                                        });
 
          
-            Views.TryToAttach(x =>
+            Views
+                .Facility(new SparkViewFacility(sparkViewFactory, actionType => actionType.Name.EndsWith("Controller")))
+                .TryToAttach(x =>
                                   {
-                                      x.by_ViewModel_and_Namespace_and_MethodName();
-                                      x.by_ViewModel_and_Namespace();
-                                      x.by_ViewModel();
+                                      x.BySparkViewDescriptors(action => action.RemoveSuffix("Controller"));
+                                      //x.by_ViewModel_and_Namespace_and_MethodName();
+                                      //x.by_ViewModel_and_Namespace();
+                                      //x.by_ViewModel();
                                   });
 
             Output.To(call => new RssOutputNode(call.OutputType())).WhenTheOutputModelIs<RssFeed>();

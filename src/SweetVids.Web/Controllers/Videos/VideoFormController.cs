@@ -1,3 +1,4 @@
+using System.Linq;
 using FubuMVC.Core;
 using FubuMVC.Core.View;
 using SweetVids.Core.Domain;
@@ -9,6 +10,7 @@ namespace SweetVids.Web.Controllers.Videos
         [FubuPartial]
         public VideoFormViewModel Form(AddVideoFormRequest request)
         {
+            
             return new VideoFormViewModel(){Video = new Video()};
         }
     }

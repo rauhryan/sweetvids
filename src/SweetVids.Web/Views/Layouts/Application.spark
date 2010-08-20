@@ -1,0 +1,53 @@
+﻿
+<use namespace="System.Collections.Generic"/>
+<use namespace="System.Linq"/>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>NineCollective - Sweet Vids</title>
+    
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/reset.css" />
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/960.css" />
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/structure.css" />
+    <link media="screen" rel="Stylesheet" type="text/css" href="/Content/css/styles.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="/rss" type="application/rss+xml" title="Sweet Vids Feed" rel="alternate">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/content/scripts/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('form').validate();
+        });
+    </script>
+
+    <use content="head" />
+</head>
+<body class="bg-color4">
+   <div class="container_16">
+    <div class="grid_16 hdr-main">
+        <div class="mod grid_8">
+            <div class="inner">
+                <div class="bd">
+                    <a href="/videos"><h1 class="lobster color0 ">Sweet Vids</h1></a>        
+                </div>
+            </div>
+        </div>
+        <div class="mod grid_8">
+            <div class="inner">
+                <div class="bd f-right"><a href="/rss"><img src="/content/images/rss.png" /></a></div>
+            </div>
+        </div>
+        
+    </div>
+    
+		<use content="view" />
+    </div>
+   
+    
+</body>
+</html>
