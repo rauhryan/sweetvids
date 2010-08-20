@@ -27,20 +27,8 @@ namespace SweetVids.Web
 
             For<HttpContextBase>().Use(ctx => new HttpContextWrapper(HttpContext.Current));
             For<HttpRequestBase>().Use(ctx => new HttpRequestWrapper(HttpContext.Current.Request));
-            ForSingletonOf<SparkViewFactory>();
-            For<IServiceLocator>().Use<StructureMapServiceLocator>();
-           
-            For<ISparkSettings>().Use(GetSparkSettings());
-            For(typeof(ISparkViewRenderer<>)).Use(typeof(SparkViewRenderer<>));
         }
 
-        private ISparkSettings GetSparkSettings()
-        {
-            return new SparkSettings()
-                .AddAssembly(typeof (PartialTagFactory).Assembly)
-                .AddNamespace("Spark.Web.FubuMVC")
-                .AddNamespace("FubuMVC.UI")
-                .AddNamespace("HtmlTags");
-        }
+      
     }
 }

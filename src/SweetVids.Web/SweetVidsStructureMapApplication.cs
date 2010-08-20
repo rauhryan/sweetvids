@@ -40,7 +40,9 @@ namespace SweetVids.Web
                 .AddNamespace("FubuMVC.UI")
                 .AddNamespace("HtmlTags")
                 .AddNamespace("System.Collections.Generic")
-                .AddNamespace("System.Linq");
+                .AddNamespace("System.Linq")
+                .AddNamespace("SweetVids.Core")
+                .AddNamespace("SweetVids.Core.Domain");
         }
 
         protected virtual void InitializeStructureMap(IInitializationExpression ex)

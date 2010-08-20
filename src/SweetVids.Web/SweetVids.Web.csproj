@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Layouts\Application.spark" />
+    <None Include="Views\Videos\Details.spark" />
     <None Include="Views\Videos\List.spark" />
     <None Include="Views\Videos\_AddForm.spark" />
   </ItemGroup>
