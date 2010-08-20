@@ -1,5 +1,5 @@
 ﻿
-
+<use namespace="SweetVids.Core.Domain" />
 
 <viewdata model="SweetVids.Web.Controllers.Videos.ListVideosViewModel" />
 <content:head>
@@ -28,7 +28,9 @@
         </a>
     </div>
 </div>
-<!--${ this.Partial(new AddVideoFormRequest()); }-->
+
+<AddForm></AddForm>
+
 <for each="var video in Model.Videos">
     <div class="mod prefix_3 grid_10 suffix_3">
         <div class="inner">
@@ -62,7 +64,7 @@
 <div class="mod grid_16">
     <div class="inner">
         <div class="bd grid_10 prefix_3 suffix_3 comment-line">
-           <!-- ${ this.Pagination(Urls.UrlFor(new ListVideosRequest(){}),Model.Page, Model.Total) }-->
+            ${ this.Pagination(Urls.UrlFor(new ListVideosRequest(){}),Model.Page, Model.Total) }
         </div>
     </div>
 </div>

@@ -142,6 +142,7 @@
   <ItemGroup>
     <None Include="Views\Layouts\Application.spark" />
     <None Include="Views\Videos\Get.spark" />
+    <None Include="Views\Videos\_AddForm.spark" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

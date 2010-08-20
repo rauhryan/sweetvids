@@ -87,6 +87,8 @@ namespace SweetVids.Web.Controllers.Videos
         public int Total { get; set; }
 
         public int Page { get; set; }
+
+        public Video Video { get; set; }
     }
 
     public class Videos : FubuPage<ListVideosViewModel> { }
