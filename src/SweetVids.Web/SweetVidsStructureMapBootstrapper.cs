@@ -1,4 +1,5 @@
 using System.Web.Routing;
+using FluentNHibernate;
 using SweetVids.Core;
 using SweetVids.Core.Util;
 using SweetVids.Web.Behaviors;
@@ -36,6 +37,7 @@ namespace SweetVids.Web
             fubuBootstrapper.Bootstrap(_routes);
 
             //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            ObjectFactory.Container.GetInstance<ISessionSource>().BuildSchema();
 
             ObjectFactory.Container.StartStartables();
             

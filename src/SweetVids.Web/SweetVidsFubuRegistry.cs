@@ -8,6 +8,7 @@ using Spark.Web.FubuMVC.Extensions;
 using Spark.Web.FubuMVC.ViewLocation;
 using SweetVids.Web.Behaviors;
 using SweetVids.Web.Controllers.Rss;
+using SweetVids.Web.Controllers.Videos;
 using SweetVids.Web.Conventions;
 
 namespace SweetVids.Web
@@ -22,6 +23,9 @@ namespace SweetVids.Web
 
             this.UseDefaultHtmlConventions();
 
+            this.HtmlConvention<SweetVidsHtmlConventions>();
+
+            HomeIs<VideosController>(x => x.List(new ListVideosRequest()));
             //Setup Actions
             Actions
               .IncludeTypesNamed(x => x.EndsWith("Controller"));

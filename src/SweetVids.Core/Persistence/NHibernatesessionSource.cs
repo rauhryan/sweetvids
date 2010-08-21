@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using FluentNHibernate;
 using FluentNHibernate.Cfg;
@@ -67,6 +68,9 @@ namespace SweetVids.Core.Persistence
             ISession session = CreateSession();
             IDbConnection connection = session.Connection;
 
+            if (databaseHasTables(connection))
+                return;
+
             Dialect dialect = Dialect.GetDialect(AssembleConfiguration(null).Properties);
             string[] drops = _configuration.GenerateDropSchemaScript(dialect);
             executeScripts(drops, connection);
@@ -74,6 +78,16 @@ namespace SweetVids.Core.Persistence
             string[] scripts = _configuration.GenerateSchemaCreationScript(dialect);
 
             executeScripts(scripts, connection);
+        }
+
+        private bool databaseHasTables(IDbConnection connection)
+        {
+            using(var command = connection.CreateCommand())
+            {
+                command.CommandText = "select * from sqlite_master where type = 'table'";
+                var row = command.ExecuteScalar();
+                return row != null;
+            }
         }
 
         private static void executeScripts(string[] scripts, IDbConnection connection)
