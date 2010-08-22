@@ -59,9 +59,7 @@ namespace SweetVids.Core.Persistence
                 c.Add<DefaultStringLengthConvention>();
                 c.Add<CustomForeignKeyConvention>();
                 c.Add<TableNameConvention>();
-                
-                //c.Add(ConventionBuilder.Property.Always(s => s.Column("[" + s.Property.Name + "]")));
-                //c.Add(ConventionBuilder.Class.Always(s => s.Table("[" + s.EntityType.Name + "]"))); 
+; 
             };
         }
 

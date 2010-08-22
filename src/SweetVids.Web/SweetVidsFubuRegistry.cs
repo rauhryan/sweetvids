@@ -56,13 +56,7 @@ namespace SweetVids.Web
          
             Views
                 .Facility(new SparkViewFacility(sparkViewFactory, actionType => actionType.Name.EndsWith("Controller")))
-                .TryToAttach(x =>
-                                  {
-                                      x.BySparkViewDescriptors(action => action.RemoveSuffix("Controller"));
-                                      //x.by_ViewModel_and_Namespace_and_MethodName();
-                                      //x.by_ViewModel_and_Namespace();
-                                      //x.by_ViewModel();
-                                  });
+                .TryToAttach(x => x.BySparkViewDescriptors(action => action.RemoveSuffix("Controller")));
 
             Output.To(call => new RssOutputNode(call.OutputType())).WhenTheOutputModelIs<RssFeed>();
         }

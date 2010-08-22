@@ -45,12 +45,7 @@ namespace SweetVids.Core.Persistence
         {
             return Fluently.Configure()
                 .Database(new PersistenceConfigurer(_configurationProperties))
-                .Mappings(x =>
-                              {
-                                  x.AutoMappings.Add(new AutoPersistenceModelGenerator().Generate());
-                                  //x.FluentMappings.AddFromAssemblyOf<RegionMap>();
-                                  //x.AutoMappings.ExportTo("d:\\code\\coachesaid3\\MappingFiles");
-                              })
+                .Mappings(x => x.AutoMappings.Add(new AutoPersistenceModelGenerator().Generate()))
                 .ExposeConfiguration(config => config.Properties.Add("prepare_sql", "true"));
         }
 

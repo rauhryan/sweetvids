@@ -84,9 +84,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controllers\Videos\AddVideoForm.aspx" />
-    <Content Include="Controllers\Videos\Details.aspx" />
-    <Content Include="Controllers\Videos\Videos.aspx" />
     <Content Include="Content\css\960.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\structure.css" />
@@ -124,13 +121,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shared\Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shared\Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="SweetVidsFubuRegistry.cs" />
     <Compile Include="SweetVidsStructureMapApplication.cs" />
     <Compile Include="SweetVidsStructureMapBootstrapper.cs" />
@@ -141,9 +131,6 @@
       <Project>{8286B56B-C115-4637-9B7E-FB799007E4F3}</Project>
       <Name>SweetVids.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Layouts\Application.spark" />
