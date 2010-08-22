@@ -25,7 +25,10 @@ If you do not have ruby:
 
 How to get SweetVids running?
 --
-
+ > Updated : Tho sweetvids does support some cool things with tarantino and database verisioning
+ > Sweetvids now uses sqlite so you should now be able to simply open the project in VS2010 and 
+ > launch the application. Depending on your hardware set up you may have some trouble with x64 vs x86 machines
+ 
 Sweet vids uses FluentNHibernate but we are using some custom rake commands to get the database up and running.
 
 1. the rake command `rake dbCreateDev ` should create the required sqlServer container and run the initial schema scripts.
