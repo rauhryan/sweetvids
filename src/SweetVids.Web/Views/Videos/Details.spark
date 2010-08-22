@@ -13,7 +13,7 @@
                 <param name="allowFullScreen" value="true"></param>
                 <param name="allowscriptaccess" value="always"></param>
                 <embed src="${Model.Video.GetYouTubeUrl() }" type="application/x-shockwave-flash"
-                    allowscriptaccess="always" allowfullscreen="true" width="660" height="525"></embed></object>
+                    allowscriptaccess="always" allowfullscreen="true" width="100%" height="745"></embed></object>
         </div>
         <div class="ft">
             <p class="description">
@@ -24,7 +24,7 @@
              <for each="var comment in Model.Video.GetVideoComments()">
                 <li class="${ classes[commentIndex%2] } mod">
                     <div class="gravatar">
-                        <img src="http://www.gravatar.com/avatar/${ comment.Email.ToGravatarHash() }?d=monsterid&s=60"
+                        <img src="http://www.gravatar.com/avatar/${ comment.Email }?d=monsterid&s=60"
                             alt="gravatar" />
                     </div>
                     <div class="comment">

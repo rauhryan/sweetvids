@@ -1,6 +1,7 @@
 using System;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
+using SweetVids.Core;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Persistence;
 using SweetVids.Web.Controllers.Videos;
@@ -20,6 +21,7 @@ namespace SweetVids.Web.Controllers.Comments
         public FubuContinuation Post(AddCommentRequest request)
         {
             request.Comment.Video = new Video(){Id = request.VideoId};
+            request.Comment.Email = request.Comment.Email.ToGravatarHash();
             _repository.Save(request.Comment);
 
 
