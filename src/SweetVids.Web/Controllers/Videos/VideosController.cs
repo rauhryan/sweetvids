@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FubuMVC.Core;
@@ -70,9 +71,13 @@ namespace SweetVids.Web.Controllers.Videos
         public Guid Id { get; set; }
     }
 
-    public class VideoViewModel
+    public class VideoViewModel : IReturnJson
     {
         public Video Video { get; set; }
+        public object Flatten()
+        {
+            return Video;
+        }
     }
 
     public class ListVideosRequest
@@ -80,7 +85,7 @@ namespace SweetVids.Web.Controllers.Videos
         public int Page { get; set; }
     }
 
-    public class ListVideosViewModel
+    public class ListVideosViewModel : IEnumerable
     {
         public IEnumerable<Video> Videos { get; set; }
 
@@ -89,6 +94,10 @@ namespace SweetVids.Web.Controllers.Videos
         public int Page { get; set; }
 
         public Video Video { get; set; }
+        public IEnumerator GetEnumerator()
+        {
+            return Videos.GetEnumerator();
+        }
     }
 
     public class Videos : FubuPage<ListVideosViewModel> { }

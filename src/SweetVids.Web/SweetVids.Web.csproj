@@ -103,6 +103,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\VariableOutput\CustomJsonBehavior.cs" />
+    <Compile Include="Behaviors\VariableOutput\RenderVariableOutput.cs" />
+    <Compile Include="Behaviors\VariableOutput\VariableOutputConvention.cs" />
+    <Compile Include="Behaviors\VariableOutput\VariableOutputNode.cs" />
     <Compile Include="Controllers\Comments\CommentsController.cs" />
     <Compile Include="Controllers\Rss\RssController.cs" />
     <Compile Include="Controllers\Rss\RssFeed.cs" />
@@ -114,6 +118,7 @@
     </Compile>
     <Compile Include="Behaviors\RssOutputNode.cs" />
     <Compile Include="Behaviors\TransactionalContainerBehavior.cs" />
+    <Compile Include="Conventions\IReturnJson.cs" />
     <Compile Include="Conventions\SweetVidsHtmlConventions.cs" />
     <Compile Include="Conventions\IRequestById.cs" />
     <Compile Include="FubuPageExtensions.cs" />

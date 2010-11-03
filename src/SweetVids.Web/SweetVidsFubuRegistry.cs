@@ -7,6 +7,7 @@ using Spark.Web.FubuMVC;
 using Spark.Web.FubuMVC.Extensions;
 using Spark.Web.FubuMVC.ViewLocation;
 using SweetVids.Web.Behaviors;
+using SweetVids.Web.Behaviors.VariableOutput;
 using SweetVids.Web.Controllers.Rss;
 using SweetVids.Web.Controllers.Videos;
 using SweetVids.Web.Conventions;
@@ -59,6 +60,9 @@ namespace SweetVids.Web
                 .TryToAttach(x => x.BySparkViewDescriptors(action => action.RemoveSuffix("Controller")));
 
             Output.To(call => new RssOutputNode(call.OutputType())).WhenTheOutputModelIs<RssFeed>();
+
+            Policies
+                .Add<VariableOutputConvention>();
         }
     }
 
