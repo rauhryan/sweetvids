@@ -9,10 +9,10 @@
         </div>
         <div class="bd">
             <object width="960" height="745">
-                <param name="movie" value="${Model.Video.GetYouTubeUrl() }"></param>
+                <param name="movie" value="${Model.Video.YouTubeUrl }"></param>
                 <param name="allowFullScreen" value="true"></param>
                 <param name="allowscriptaccess" value="always"></param>
-                <embed src="${Model.Video.GetYouTubeUrl() }" type="application/x-shockwave-flash"
+                <embed src="${Model.Video.YouTubeUrl }" type="application/x-shockwave-flash"
                     allowscriptaccess="always" allowfullscreen="true" width="100%" height="745"></embed></object>
         </div>
         <div class="ft">
@@ -21,7 +21,7 @@
             <ul class="comments">
             <var classes="new [] {'even','odd'}"/>
 
-             <for each="var comment in Model.Video.GetVideoComments()">
+             <for each="var comment in Model.Video.Comments">
                 <li class="${ classes[commentIndex%2] } mod">
                     <div class="gravatar">
                         <img src="http://www.gravatar.com/avatar/${ comment.Email }?d=monsterid&s=60"

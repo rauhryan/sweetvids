@@ -10,7 +10,7 @@ namespace SweetVids.Core.Persistence.Overrides
     {
         public void Override(AutoMapping<Video> mapping)
         {
-            mapping.HasMany(x => x.GetVideoComments())
+            mapping.HasMany(x => x.Comments)
                 .Access.CamelCaseField(Prefix.Underscore)
                 .Cascade.SaveUpdate();
         }

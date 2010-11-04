@@ -20,7 +20,7 @@ namespace SweetVids.Web.Controllers.Comments
         [UrlForNew(typeof(VideoComment))]
         public FubuContinuation Post(AddCommentRequest request)
         {
-            request.Comment.Video = new Video(){Id = request.VideoId};
+            request.Comment.SetVideo(new Video(){Id = request.VideoId});
             request.Comment.Email = request.Comment.Email.ToGravatarHash();
             _repository.Save(request.Comment);
 

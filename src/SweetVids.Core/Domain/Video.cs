@@ -8,7 +8,7 @@ namespace SweetVids.Core.Domain
 {
     public class Video : Entity
     {
-        private IList<VideoComment> _videoComments = new List<VideoComment>();
+        private IList<VideoComment> _comments = new List<VideoComment>();
 
         [Required]
         public virtual string Link { get; set; }
@@ -19,21 +19,23 @@ namespace SweetVids.Core.Domain
         [Required]
         public virtual string VideoType { get; set; }
 
-        public virtual IEnumerable<VideoComment> GetVideoComments()
+        public virtual IEnumerable<VideoComment> Comments
         {
-            return _videoComments;
+            get { return _comments; }
         }
 
-        public virtual string GetYouTubeUrl()
+        public virtual string YouTubeUrl
         {
-            var url =
-                "http://www.youtube.com/v/{0}&amp;hl=en_US&amp;fs=1";
-            var uri = new Uri(Link);
+            get
+            {
+                var url =
+                    "http://www.youtube.com/v/{0}&amp;hl=en_US&amp;fs=1";
+                var uri = new Uri(Link);
 
-            var vidId = HttpUtility.ParseQueryString(uri.Query).Get("v");
+                var vidId = HttpUtility.ParseQueryString(uri.Query).Get("v");
 
-            return string.Format(url, vidId);
-           
+                return string.Format(url, vidId);
+            }
         }
 
         public override string ToString()
@@ -45,7 +47,7 @@ namespace SweetVids.Core.Domain
             builder.Append("</h3><div>");
             builder.Append(string.Format(
                 "<object width=\"960\" height=\"745\"><param name=\"movie\" value=\"{0}\"></param><param name=\"allowFullScreen\" value=\"true\"></param><param name=\"allowscriptaccess\" value=\"always\"></param><embed src=\"{0}\" type=\"application/x-shockwave-flash\"allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"660\" height=\"525\"></embed></object>",
-                GetYouTubeUrl()));
+                YouTubeUrl));
             builder.Append("</div><p>");
             builder.Append(Description);
             builder.Append("</p></div>");
