@@ -13,15 +13,6 @@ namespace SweetVids.Core.Domain
         public virtual string Comment { get; set; }
 
         private Video _video;
-
-        public virtual void SetVideo(Video value)
-        {
-            _video = value;
-        }
-
-        public virtual Video GetVideo()
-        {
-            return _video;
-        }
+        
     }
 }

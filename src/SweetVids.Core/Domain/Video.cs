@@ -53,6 +53,10 @@ namespace SweetVids.Core.Domain
             builder.Append("</p></div>");
             return builder.ToString();
         }
-       
+
+        public virtual void AddComment(VideoComment comment)
+        {
+            _comments.Add(comment);
+        }
     }
 }

@@ -10,9 +10,9 @@ namespace SweetVids.Web.Controllers.Comments
 {
     public class CommentsController
     {
-        private readonly IRepository<VideoComment> _repository;
+        private readonly IRepository<Video> _repository;
 
-        public CommentsController(IRepository<VideoComment> repository)
+        public CommentsController(IRepository<Video> repository)
         {
             _repository = repository;
         }
@@ -20,11 +20,12 @@ namespace SweetVids.Web.Controllers.Comments
         [UrlForNew(typeof(VideoComment))]
         public FubuContinuation Post(AddCommentRequest request)
         {
-            request.Comment.SetVideo(new Video(){Id = request.VideoId});
-            request.Comment.Email = request.Comment.Email.ToGravatarHash();
-            _repository.Save(request.Comment);
+            var video = _repository.Get(request.VideoId);
 
+            video.AddComment(request.Comment);
 
+            _repository.Save(video);
+    
             return FubuContinuation.RedirectTo(new GetVideoRequest{Id = request.VideoId});}
         }
     }

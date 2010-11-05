@@ -40,19 +40,26 @@ namespace SweetVids.Web.Controllers.Videos
         }
 
         [UrlForNew(typeof(Video))]
-        public FubuContinuation Post(AddVideoRequest request)
+        public AjaxResponse Post(AddVideoRequest request)
         {
             _repository.Save(request.Video);
 
-            return FubuContinuation.RedirectTo(new ListVideosRequest());
+            return new AjaxResponse()
+                       {
+                           Success = true, 
+                           Payload = request.Video
+                       };
         }
 
-        public FubuContinuation Delete(DeleteVideoRequest request)
+        public AjaxResponse Delete(DeleteVideoRequest request)
         {
             var video = _repository.Get(request.Id);
             _repository.Delete(video);
 
-            return FubuContinuation.RedirectTo(new ListVideosRequest());
+            return new AjaxResponse()
+                       {
+                           Success = true
+                       };
         }
     }
 

@@ -17,11 +17,19 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/content/scripts/jquery.form.js"></script>
     <script type="text/javascript" src="/content/scripts/jquery.validate.js"></script>
 
     <script type="text/javascript">
         jQuery(function ($) {
-            $('form').validate();
+            $('form').ajaxForm({
+                beforeSubmit: function(data, $form){
+                  return $form.valid();
+                },
+                success: function(){
+                  window.location.reload(true);
+                }
+            });
         });
     </script>
 
@@ -33,7 +41,7 @@
         <div class="mod grid_8">
             <div class="inner">
                 <div class="bd">
-                    <a href="/videos"><h1 class="lobster color0 ">Sweet Vids</h1></a>        
+                    <a href="/"><h1 class="lobster color0 ">Sweet Vids</h1></a>        
                 </div>
             </div>
         </div>

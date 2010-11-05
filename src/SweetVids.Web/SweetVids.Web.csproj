@@ -90,6 +90,7 @@
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\headerbar.jpg" />
     <Content Include="Content\images\rss.png" />
+    <Content Include="Content\scripts\jquery.form.js" />
     <Content Include="Content\scripts\jquery.validate.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -107,6 +108,7 @@
     <Compile Include="Behaviors\VariableOutput\RenderVariableOutput.cs" />
     <Compile Include="Behaviors\VariableOutput\VariableOutputConvention.cs" />
     <Compile Include="Behaviors\VariableOutput\VariableOutputNode.cs" />
+    <Compile Include="Controllers\AjaxResponse.cs" />
     <Compile Include="Controllers\Comments\CommentsController.cs" />
     <Compile Include="Controllers\Rss\RssController.cs" />
     <Compile Include="Controllers\Rss\RssFeed.cs" />
