@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 using FubuMVC.Core.View;
-using FubuMVC.UI;
+using FubuMVC.Core.UI;
 using HtmlTags;
 
 namespace SweetVids.Web

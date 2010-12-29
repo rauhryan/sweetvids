@@ -1,7 +1,7 @@
 using System;
 using System.Web;
 using FubuMVC.StructureMap;
-using FubuMVC.UI.Tags;
+using FubuMVC.Core.UI.Tags;
 using Microsoft.Practices.ServiceLocation;
 using Spark;
 using Spark.Web.FubuMVC;

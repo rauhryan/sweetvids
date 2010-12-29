@@ -1,17 +1,24 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Routing;
+using FluentNHibernate;
+using FubuCore;
 using FubuMVC.Core;
+using FubuMVC.Core.Bootstrapping;
+using FubuMVC.Core.Packaging;
 using FubuMVC.StructureMap;
-using FubuMVC.UI.Tags;
+using FubuMVC.Core.UI.Tags;
 using Microsoft.Practices.ServiceLocation;
 using Spark;
 using Spark.Web.FubuMVC;
 using Spark.Web.FubuMVC.ViewCreation;
 using StructureMap;
 using SweetVids.Core;
+using SweetVids.Core.Util;
+using SweetVids.Web.Behaviors;
 
 namespace SweetVids.Web
 {
@@ -37,7 +44,7 @@ namespace SweetVids.Web
             return new SparkSettings()
                 .AddAssembly(typeof(PartialTagFactory).Assembly)
                 .AddNamespace("Spark.Web.FubuMVC")
-                .AddNamespace("FubuMVC.UI")
+                .AddNamespace("FubuMVC.Core.UI")
                 .AddNamespace("HtmlTags")
                 .AddNamespace("System.Collections.Generic")
                 .AddNamespace("System.Linq")
@@ -63,11 +70,41 @@ namespace SweetVids.Web
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            UrlContext.Reset();
             RouteCollection routeCollection = RouteTable.Routes;
+            Bootstrap(routeCollection);
+        }
+
+        [SkipOverForProvenance]
+        public void Bootstrap(ICollection<RouteBase> routes)
+        {
 
             ObjectFactory.Initialize(InitializeStructureMap);
 
-            SweetVidsStructureMapBootstrapper.Bootstrap(routeCollection, GetMyRegistry());
+            FubuApplication.For(GetMyRegistry())
+                .ContainerFacility(new SweetVidsContainerFacility(ObjectFactory.Container))
+                .Bootstrap(routes);
+       
+            ObjectFactory.Container.GetInstance<ISessionSource>().BuildSchema();
+
+            ObjectFactory.Container.StartStartables();
+        }
+
+    }
+
+    public class SweetVidsContainerFacility : StructureMapContainerFacility
+    {
+        private readonly IContainer _container;
+
+        public SweetVidsContainerFacility(IContainer container)
+            : base(container)
+        {
+            _container = container;
+        }
+
+        public override FubuMVC.Core.Behaviors.IActionBehavior BuildBehavior(FubuCore.Binding.ServiceArguments arguments, Guid behaviorId)
+        {
+            return new TransactionalContainerBehavior(_container, arguments, behaviorId);
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 using FubuCore;
-using FubuMVC.UI;
+using FubuMVC.Core.UI;
 using HtmlTags;
 using SweetVids.Core.Domain;
 using SweetVids.Core.Util;

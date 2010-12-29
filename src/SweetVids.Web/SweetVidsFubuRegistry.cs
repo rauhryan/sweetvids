@@ -2,7 +2,7 @@ using System;
 using System.Xml.Serialization;
 using FubuCore;
 using FubuMVC.Core;
-using FubuMVC.UI;
+using FubuMVC.Core.UI;
 using Spark.Web.FubuMVC;
 using Spark.Web.FubuMVC.Extensions;
 using Spark.Web.FubuMVC.ViewLocation;
@@ -15,15 +15,13 @@ using SweetVids.Web.Conventions;
 
 namespace SweetVids.Web
 {
-    public class SweetVidsFubuRegistry : FubuRegistry
+    public class SweetVidsFubuRegistry : SparkFubuRegistry
     {
-        public SweetVidsFubuRegistry(bool enableDiagnostics, string controllerAssemblyName, SparkViewFactory sparkViewFactory)
+        public SweetVidsFubuRegistry(bool enableDiagnostics, string controllerAssemblyName, SparkViewFactory sparkViewFactory) : base(sparkViewFactory)
         {
             IncludeDiagnostics(enableDiagnostics);
 
             Applies.ToThisAssembly();
-
-            this.UseDefaultHtmlConventions();
 
             this.HtmlConvention<SweetVidsHtmlConventions>();
 
@@ -55,10 +53,10 @@ namespace SweetVids.Web
                                            x.IfIsType<double>().ConvertBy(d => d.ToString("N2"));
                                        });
 
-         
-            Views
-                .Facility(new SparkViewFacility(sparkViewFactory, actionType => actionType.Name.EndsWith("Controller")))
-                .TryToAttach(x => x.BySparkViewDescriptors(action => action.RemoveSuffix("Controller")));
+
+            SparkPolicies
+                 .AttachViewsBy(call => call.HandlerType.Name.EndsWith("Controller"),
+                                     call => call.HandlerType.Name.RemoveSuffix("Controller"), call => call.Method.Name);
 
             Output
                 .ToJson.WhenTheOutputModelIs<AjaxResponse>();
